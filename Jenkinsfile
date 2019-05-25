@@ -23,10 +23,13 @@ pipeline {
             }
         }
         stage('delivery') {
-            echo "${GIT_COMMIT}"
-            def commit_name = "${GIT_COMMIT}"
-            sh 'makedir -p ${commit_name}'
-            archiveArtifacts artifacts: 'target/*.jar'
+            steps {
+                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+                echo "${GIT_COMMIT}"
+                def commit_name = "${GIT_COMMIT}"
+                sh 'makedir -p ${commit_name}'
+                archiveArtifacts artifacts: 'target/*.jar'
+            }
         }
     }
 }
