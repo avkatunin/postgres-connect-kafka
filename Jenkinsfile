@@ -24,9 +24,9 @@ pipeline {
         }
         stage('delivery') {
             steps {
-                script {
-                    def commit_name = env.GIT_COMMIT
-                }
+                #script {
+                    #def commit_name = env.GIT_COMMIT
+                #}
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
                 echo "${GIT_COMMIT}"
                 echo "${commit_name}"
