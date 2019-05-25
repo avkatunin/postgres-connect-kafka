@@ -25,6 +25,12 @@ pipeline {
         stage('delivery') {
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+                
+                GIT_COMMIT_DESC = sh (
+                    script: 'git log -1 --pretty=format:\'%s\' ${GIT_COMMIT}',
+                    returnStdout: true
+                ).trim()
+                
                 echo "${GIT_COMMIT}"
                 echp "${GIT_COMMIT_DESC}"
                 sh 'makedir -p ${GIT_COMMIT_DESC}'
