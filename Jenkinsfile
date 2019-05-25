@@ -32,7 +32,7 @@ pipeline {
                     returnStdout: true
                     ).trim()
                     echo "${GIT_COMMIT_DESC}"
-                    sh 'makedir -p ${GIT_COMMIT_DESC}'
+                    sh "mkdir -p ${GIT_COMMIT_DESC}"
                 }
                 
                 echo "${GIT_COMMIT}"
