@@ -23,10 +23,10 @@ pipeline {
             }
         }
         stage('delivery') {
-            script {
-                def commit_name = "${GIT_COMMIT}"
-            }
             steps {
+                script {
+                    def commit_name = "${GIT_COMMIT}"
+                }
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
                 echo "${GIT_COMMIT}"
                 sh 'makedir -p ${commit_name}'
