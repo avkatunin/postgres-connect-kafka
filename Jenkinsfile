@@ -26,7 +26,6 @@ pipeline {
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
                 echo "${GIT_COMMIT}"
-                echo "${commit_name}"
                 echp "${GIT_COMMIT_DESC}"
                 sh 'makedir -p ${GIT_COMMIT_DESC}'
                 archiveArtifacts artifacts: 'target/*.jar'
