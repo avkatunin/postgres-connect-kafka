@@ -31,7 +31,7 @@ pipeline {
                     script: 'git log -1 --pretty=format:\'%s\' ${GIT_COMMIT}',
                     returnStdout: true
                     ).trim()
-                    echp "${GIT_COMMIT_DESC}"
+                    echo "${GIT_COMMIT_DESC}"
                     sh 'makedir -p ${GIT_COMMIT_DESC}'
                 }
                 
