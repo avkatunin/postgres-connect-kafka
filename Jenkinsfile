@@ -35,9 +35,7 @@ pipeline {
                     echo "${GIT_COMMIT_DESC}"
                     sh "mkdir -p \'${GIT_COMMIT_DESC}\'"
                 }
-                
                 echo "${GIT_COMMIT}"
-                archiveArtifacts artifacts: 'target/*.jar'
             }
         }
     }
