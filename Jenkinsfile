@@ -2,6 +2,7 @@
 
 pipeline {
     agent { label 'master' }
+    triggers { pollSCM('* * * * *') }
     tools {
         maven 'maven'
     }
